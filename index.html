@@ -9,39 +9,37 @@
     margin: 0;
     background-color: white;
     overflow: hidden;
+  }
+  #container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-  }
-  #bridge-container {
-    position: relative;
-    max-width: 100vw;
-    max-height: 100vh;
+    overflow: hidden;
   }
   #bridge {
-    width: 100%;
-    height: auto;
-    display: block;
+    max-width: 100vw;
+    max-height: 100vh;
+    object-fit: contain;
+    z-index: 1;
   }
   #flames {
     position: absolute;
-    bottom: 0; /* align with bottom of bridge */
+    top: 38%; /* flames slightly higher, like before */
     left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: auto;
+    transform: translate(-50%, -50%);
+    width: 100vw; height: auto;
     z-index: 2;
     display: none;
     pointer-events: none;
   }
   #smoke {
     position: absolute;
-    top: 30%; /* centered over bridge */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120%;
-    height: auto;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120vw; height: auto;
     z-index: 3;
     display: none;
     pointer-events: none;
@@ -50,19 +48,19 @@
 </head>
 <body>
 
-<div id="bridge-container">
-  <img src="images/bridgeone.jpeg" alt="Bridge">
-  <img src="images/flames.gif" alt="Flames">
-  <img src="images/smokecloud.gif" alt="Smoke">
+<div id="container">
+  <img id="bridge" src="images/bridgeone.jpeg" alt="Bridge">
+  <img id="flames" src="images/flames.gif" alt="Flames">
+  <img id="smoke" src="images/smokecloud.gif" alt="Smoke">
 </div>
 
 <script>
   let tapCount = 0;
-  let locked = false; 
+  let locked = false; // prevents extra taps once smoke starts
   const redirectURL = "https://youtu.be/l7hO5sn3Riw?si=9SOszHU-pNTdXeQm";
 
   document.body.addEventListener("click", () => {
-    if (locked) return; 
+    if (locked) return; // stop clicks after smoke starts
 
     tapCount++;
 
@@ -70,14 +68,13 @@
       document.getElementById("flames").style.display = "block";
     } else if (tapCount === 2) {
       document.getElementById("smoke").style.display = "block";
-      locked = true; 
+      locked = true; // block more clicks
       setTimeout(() => {
         window.location.href = redirectURL;
-      }, 2000); 
+      }, 2000); // adjust delay to match smoke gif length
     }
   });
 </script>
 
 </body>
 </html>
-
