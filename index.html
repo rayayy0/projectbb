@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bridge Animation</title>
-<style>
-  body {
-    margin: 0;
-    background-color: white;
-    overflow: hidden;
-  }
-  #container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  #bridge {
-    max-width: 100vw;
-    max-height: 100vh;
-    object-fit: contain;
-    z-index: 1;
-  }
-  #flames {
-    position: absolute;
-    top: 42%; /* flames slightly higher, like before */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100vw; height: auto;
-    z-index: 2;
-    display: none;
-    pointer-events: none;
-  }
-  #smoke {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120vw; height: auto;
-    z-index: 3;
-    display: none;
-    pointer-events: none;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Browser + link preview title -->
+  <title>PROJECT B.B.</title>
+  <meta property="og:title" content="PROJECT B.B.">
+  <meta property="og:image" content="https://rayayy0.github.io/projectbb/images/lock.png">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: white;
+      overflow: hidden;
+    }
+    #container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    #bridge {
+      max-width: 100vw;
+      max-height: 100vh;
+      object-fit: contain;
+      z-index: 1;
+    }
+    #flames {
+      position: absolute;
+      top: 42%; /* flames slightly higher, like before */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw; height: auto;
+      z-index: 2;
+      display: none;
+      pointer-events: none;
+    }
+    #smoke {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120vw; height: auto;
+      z-index: 3;
+      display: none;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
 
